@@ -14,7 +14,8 @@ private var tempFooterKey: UInt8 = 0
 
 extension UIScrollView {
 
-    private var spr_header: RefreshView? {
+    // MAKR: Custom.change this from private to public.
+    public var spr_header: RefreshView? {
         get {
             return objc_getAssociatedObject(self, &headerKey) as? RefreshView
         }
@@ -25,7 +26,8 @@ extension UIScrollView {
         }
     }
 
-    private var spr_footer: RefreshView? {
+    // MAKR: Custom.change this from private to public.
+    public var spr_footer: RefreshView? {
         get {
             return objc_getAssociatedObject(self, &footerKey) as? RefreshView
         }
@@ -113,6 +115,13 @@ extension UIScrollView {
         self.spr_footer = footer
     }
 
+    // MARK: Custom.
+    /// End refreshing with a callback.
+    public func spr_endRefreshing(complete: (() -> ())? = nil) {
+        spr_header?.endRefreshing(completion: complete)
+        spr_footer?.endRefreshing(completion: complete)
+    }
+    
     /// Begin refreshing with header
     public func spr_beginRefreshing() {
         spr_header?.beginRefreshing()
@@ -191,6 +200,20 @@ extension UIScrollView {
 
     /// Clear the footer
     public func spr_clearFooter() {
+        spr_footer = nil
+    }
+
+    // MARK: Custom.
+    /// Clear the header and remove it from super view.
+    public func spr_removeHeader() {
+        spr_header?.removeFromSuperview()
+        spr_header = nil
+    }
+
+    // MARK: Custom.
+    /// Clear the footer and remove it from super view.
+    public func spr_removeFooter() {
+        spr_footer?.removeFromSuperview()
         spr_footer = nil
     }
 
