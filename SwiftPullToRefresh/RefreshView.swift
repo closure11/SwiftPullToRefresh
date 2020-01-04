@@ -54,6 +54,8 @@ open class RefreshView: UIView {
     private var offsetToken: NSKeyValueObservation?
     private var stateToken: NSKeyValueObservation?
     private var sizeToken: NSKeyValueObservation?
+    
+    private var hasSetupObserver: Bool = false
 
     open override func willMove(toWindow newWindow: UIWindow?) {
         if newWindow == nil {
@@ -73,6 +75,7 @@ open class RefreshView: UIView {
     }
 
     private func setupObserver(_ scrollView: UIScrollView) {
+        hasSetupObserver = true
         offsetToken = scrollView.observe(\.contentOffset) { [weak self] scrollView, _ in
             self?.scrollViewDidScroll(scrollView)
         }
@@ -89,8 +92,16 @@ open class RefreshView: UIView {
             }
         }
     }
+    
+    func trySetupObserver(_ scrollView: UIScrollView) {
+        if !hasSetupObserver {
+            clearObserver()
+            setupObserver(scrollView)
+        }
+    }
 
     private func clearObserver() {
+        hasSetupObserver = false
         offsetToken?.invalidate()
         stateToken?.invalidate()
         sizeToken?.invalidate()

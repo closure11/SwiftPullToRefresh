@@ -22,7 +22,10 @@ extension UIScrollView {
         set {
             spr_header?.removeFromSuperview()
             objc_setAssociatedObject(self, &headerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            newValue.map { insertSubview($0, at: 0) }
+            newValue.map {
+                insertSubview($0, at: 0)
+                $0.trySetupObserver(self)
+            }
         }
     }
 
@@ -34,7 +37,10 @@ extension UIScrollView {
         set {
             spr_footer?.removeFromSuperview()
             objc_setAssociatedObject(self, &footerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            newValue.map { insertSubview($0, at: 0) }
+            newValue.map {
+                insertSubview($0, at: 0)
+                $0.trySetupObserver(self)
+            }
         }
     }
 
