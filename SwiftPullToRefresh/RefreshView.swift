@@ -84,10 +84,10 @@ open class RefreshView: UIView {
             self?.scrollViewDidEndDragging(scrollView)
         }
         if style == .header {
-            frame = CGRect(x: 0, y: -height, width: scrollView.bounds.width, height: height)
+            frame = CGRect(x: 0, y: -height, width: scrollView.bounds.width - scrollView.contentInset.left - scrollView.contentInset.right, height: height)
         } else {
             sizeToken = scrollView.observe(\.contentSize) { [weak self] scrollView, _ in
-                self?.frame = CGRect(x: 0, y: scrollView.contentSize.height, width: scrollView.bounds.width, height: self?.height ?? 0)
+                self?.frame = CGRect(x: 0, y: scrollView.contentSize.height, width: scrollView.bounds.width - scrollView.contentInset.left - scrollView.contentInset.right, height: self?.height ?? 0)
                 self?.isHidden = scrollView.contentSize.height <= scrollView.bounds.height
             }
         }
