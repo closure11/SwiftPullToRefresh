@@ -31,11 +31,11 @@ open class RefreshView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private var isRefreshing = false {
+    open var isRefreshing = false {
         didSet { didUpdateState(isRefreshing) }
     }
 
-    private var progress: CGFloat = 0 {
+    open var progress: CGFloat = 0 {
         didSet { didUpdateProgress(progress) }
     }
 
@@ -107,7 +107,7 @@ open class RefreshView: UIView {
         sizeToken?.invalidate()
     }
 
-    private func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isRefreshing { return }
 
         switch style {
@@ -129,7 +129,7 @@ open class RefreshView: UIView {
         beginRefreshing()
     }
 
-    func beginRefreshing() {
+    open func beginRefreshing() {
         guard let scrollView = scrollView, !isRefreshing else { return }
 
         progress = 1
@@ -152,10 +152,11 @@ open class RefreshView: UIView {
         }
     }
 
-    func endRefreshing(completion: (() -> Void)? = nil) {
+    open func endRefreshing(completion: (() -> Void)? = nil) {
         guard let scrollView = scrollView else { return }
         guard isRefreshing else { completion?(); return }
-
+        
+        isRefreshing = false
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.3, animations: {
                 switch self.style {
@@ -165,7 +166,6 @@ open class RefreshView: UIView {
                     scrollView.contentInset.bottom -= self.height
                 }
             }, completion: { _ in
-                self.isRefreshing = false
                 self.progress = 0
                 completion?()
             })
