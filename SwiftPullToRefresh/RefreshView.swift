@@ -146,7 +146,9 @@ open class RefreshView: UIView {
                     scrollView.contentOffset.y = self.height + scrollView.contentSize.height - scrollView.bounds.height + scrollView.contentInsetBottom
                     scrollView.contentInset.bottom += self.height
                 }
+                scrollView.layoutIfNeeded()
             }, completion: { _ in
+                scrollView.layoutIfNeeded()
                 self.action()
             })
         }
@@ -165,8 +167,10 @@ open class RefreshView: UIView {
                 case .footer, .autoFooter:
                     scrollView.contentInset.bottom -= self.height
                 }
+                scrollView.layoutIfNeeded()
             }, completion: { _ in
                 self.progress = 0
+                scrollView.layoutIfNeeded()
                 completion?()
             })
         }
