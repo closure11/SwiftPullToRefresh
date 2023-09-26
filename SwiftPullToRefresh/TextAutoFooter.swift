@@ -19,9 +19,9 @@ class TextAutoFooter: IndicatorAutoFooter {
         return label
     }()
 
-    init(loadingText: String, height: CGFloat, action: @escaping () -> Void) {
+    init(loadingText: String, isHeader: Bool, height: CGFloat, action: @escaping () -> Void) {
         self.loadingText = loadingText
-        super.init(height: height, action: action)
+        super.init(height: height, isHeader: isHeader, action: action)
         addSubview(label)
     }
 

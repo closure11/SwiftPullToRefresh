@@ -30,7 +30,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = storyboard!.instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
+//        let vc = storyboard!.instantiateViewController(withIdentifier: "TestViewController") as! TestViewController
+        let vc = TableViewController()
         vc.refresh = Refresh.all[indexPath.row]
         navigationController!.pushViewController(vc, animated: true)
     }
@@ -44,10 +45,12 @@ enum Refresh: String {
     case bigGIFHeader = "Big GIF Header"
     case gifTextHeader = "GIF + Text Header"
     case superCatHeader = "SuperCat Custom Header"
+    case indicatorAutoHeader = "Indicator Auto Header"
+    case textAutoHeader = "Indicator + Text Auto Header"
     case indicatorFooter = "Indicator Footer"
     case textFooter = "Indicator + Text Footer"
     case indicatorAutoFooter = "Indicator Auto Footer"
     case textAutoFooter = "Indicator + Text Auto Footer"
 
-    static let all: [Refresh] = [.indicatorHeader, .textHeader, .smallGIFHeader, .bigGIFHeader, .gifTextHeader, .superCatHeader, .indicatorFooter, .textFooter, .indicatorAutoFooter, .textAutoFooter]
+    static let all: [Refresh] = [.indicatorHeader, .textHeader, .smallGIFHeader, .bigGIFHeader, .gifTextHeader, .superCatHeader, .indicatorAutoHeader, .textAutoHeader, .indicatorFooter, .textFooter, .indicatorAutoFooter, .textAutoFooter]
 }

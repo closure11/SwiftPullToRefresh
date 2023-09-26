@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75C538C82AC2A6F1006BF355 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C538C72AC2A6F1006BF355 /* TableViewController.swift */; };
 		B32565C420F4A90B009E5C68 /* SwiftPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B34182D71FE943AD001AD3A3 /* SwiftPullToRefresh.framework */; };
 		B32565C520F4A90B009E5C68 /* SwiftPullToRefresh.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B34182D71FE943AD001AD3A3 /* SwiftPullToRefresh.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B34182DC1FE943AD001AD3A3 /* SwiftPullToRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = B34182DA1FE943AD001AD3A3 /* SwiftPullToRefresh.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75C538C72AC2A6F1006BF355 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B34182D71FE943AD001AD3A3 /* SwiftPullToRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftPullToRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B34182DA1FE943AD001AD3A3 /* SwiftPullToRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftPullToRefresh.h; sourceTree = "<group>"; };
 		B34182DB1FE943AD001AD3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				B34182E81FE94431001AD3A3 /* AppDelegate.swift */,
 				B34182EA1FE94431001AD3A3 /* ViewController.swift */,
 				B34182FE1FE94A98001AD3A3 /* TestViewController.swift */,
+				75C538C72AC2A6F1006BF355 /* TableViewController.swift */,
 				B3D6CBBA1FEB977F005D231C /* SuperCatHeader.swift */,
 				B3C4C4591FEB93A9009A8A5E /* demo-big.gif */,
 				B3C4C4581FEB93A9009A8A5E /* demo-small.gif */,
@@ -294,6 +297,7 @@
 				B34182EB1FE94431001AD3A3 /* ViewController.swift in Sources */,
 				B34182FF1FE94A98001AD3A3 /* TestViewController.swift in Sources */,
 				B34182E91FE94431001AD3A3 /* AppDelegate.swift in Sources */,
+				75C538C82AC2A6F1006BF355 /* TableViewController.swift in Sources */,
 				B3D6CBBB1FEB977F005D231C /* SuperCatHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,7 +462,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftPullToRefresh/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiredcraft.SwiftPullToRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -482,7 +486,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftPullToRefresh/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiredcraft.SwiftPullToRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -500,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftPullToRefreshDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiredcraft.SwiftPullToRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftPullToRefreshDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wiredcraft.SwiftPullToRefreshDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

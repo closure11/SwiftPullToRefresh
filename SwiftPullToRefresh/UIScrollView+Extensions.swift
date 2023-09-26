@@ -112,6 +112,28 @@ extension UIScrollView {
         self.spr_header = header
     }
 
+    /// Indicator auto refresh footer (auto triggered when scroll to the top of the content)
+    ///
+    /// - Parameters:
+    ///   - height: refresh view height, default is 60
+    ///   - action: refresh action
+    public func spr_setIndicatorAutoHeader(height: CGFloat = 60,
+                                           action: @escaping () -> Void) {
+        spr_header = IndicatorAutoFooter(height: height, isHeader: true, action: action)
+    }
+
+    /// Indicator + Text auto refresh header (auto triggered when scroll to the top of the content)
+    ///
+    /// - Parameters:
+    ///   - loadingText: text display for refreshing
+    ///   - height: refresh view height, default is 60
+    ///   - action: refresh action
+    public func spr_setTextAutoHeader(loadingText: String = loadingText,
+                                      height: CGFloat = 60,
+                                      action: @escaping () -> Void) {
+        spr_header = TextAutoFooter(loadingText: loadingText, isHeader: true, height: height, action: action)
+    }
+
     /// Custom footer
     /// Inherit from RefreshView
     /// Update the presentation in 'didUpdateState(_:)' and 'didUpdateProgress(_:)' methods
@@ -183,7 +205,7 @@ extension UIScrollView {
     ///   - action: refresh action
     public func spr_setIndicatorAutoFooter(height: CGFloat = 60,
                                            action: @escaping () -> Void) {
-        spr_footer = IndicatorAutoFooter(height: height, action: action)
+        spr_footer = IndicatorAutoFooter(height: height, isHeader: false, action: action)
     }
 
     /// Indicator + Text auto refresh footer (auto triggered when scroll down to the bottom of the content)
@@ -195,7 +217,7 @@ extension UIScrollView {
     public func spr_setTextAutoFooter(loadingText: String = loadingText,
                                       height: CGFloat = 60,
                                       action: @escaping () -> Void) {
-        spr_footer = TextAutoFooter(loadingText: loadingText, height: height, action: action)
+        spr_footer = TextAutoFooter(loadingText: loadingText, isHeader: false, height: height, action: action)
     }
 
 

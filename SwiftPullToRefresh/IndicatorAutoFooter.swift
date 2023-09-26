@@ -12,8 +12,8 @@ class IndicatorAutoFooter: RefreshView {
 
     let indicator = UIActivityIndicatorView(style: .gray)
 
-    init(height: CGFloat, action: @escaping () -> Void) {
-        super.init(style: .autoFooter, height: height, action: action)
+    init(height: CGFloat, isHeader: Bool, action: @escaping () -> Void) {
+        super.init(style: isHeader ?.autoHeader : .autoFooter, height: height, action: action)
         addSubview(indicator)
     }
 

@@ -54,6 +54,14 @@ class TestViewController: UIViewController {
                 self?.action()
             }
             scrollView.spr_setCustomHeader(header)
+        case .indicatorAutoHeader:
+            scrollView.spr_setIndicatorAutoHeader { [weak self] in
+                self?.action()
+            }
+        case .textAutoHeader:
+            scrollView.spr_setTextAutoHeader { [weak self] in
+                self?.action()
+            }
         case .indicatorFooter:
             scrollView.spr_setIndicatorFooter { [weak self] in
                 self?.action()
